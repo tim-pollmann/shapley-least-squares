@@ -1,0 +1,31 @@
+[project]
+name = "shapley-least-squares"
+version = "0.0.0"
+requires-python = ">=3.12"
+authors = [
+  {name = "Tim Pollmann"},
+  {name = "Jochen Staudacher"}
+]
+readme = "README.md"
+license-files = ["LICENSE"]
+
+dependencies = [
+    "click",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "PyQt5",
+    "scikit-learn"
+]
+[project.optional-dependencies]
+development = [
+    "pre_commit"
+]
+
+[project.scripts]
+run-ag-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:ag"
+run-wvg-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wvg"
+run-diabetes-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:diabetes"
+run-housing-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:housing"
+run-wine-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wine"
+run-variance-comparison = "shapley_least_squares.scripts.variance_comparisons:default"
