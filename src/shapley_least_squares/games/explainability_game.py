@@ -35,19 +35,21 @@ class _FeatureCoalitionGame(BaseGame):
         self._model.fit(X_train, y_train)
         self._eval_model(X_test, y_test)
 
+        self._empty_set_pred = self._predict(self._feature_means)
+
     @override
     def v(self, S: list[int] | np.ndarray) -> float:
         S = np.array(S, dtype=int)
 
         if len(S) == 0:
-            return self._predict(self._feature_means)
+            return 0.0
 
         datapoint_to_be_explained = self._datapoint_to_be_explained.copy()
         mask = np.ones(self._n, dtype=bool)
         mask[S] = False
         datapoint_to_be_explained[mask] = self._feature_means[mask]
 
-        return self._predict(datapoint_to_be_explained)
+        return self._predict(datapoint_to_be_explained) - self._empty_set_pred
 
     @abstractmethod
     def _predict(self) -> float:
