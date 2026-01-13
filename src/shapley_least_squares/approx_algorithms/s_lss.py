@@ -27,7 +27,7 @@ class SLSS(ApproxAlgorithmInterface):
 
     @staticmethod
     @override
-    def run(game: GameInterface, tau: int) -> np.ndarray:
+    def run(game: GameInterface, T: int) -> np.ndarray:
         n = game.n
         N = np.array(range(n))
         v_N = game.v(N)
@@ -35,7 +35,7 @@ class SLSS(ApproxAlgorithmInterface):
         a_i_m_map = {i: 0.0 for i in N}
 
         tau_per_stratum = {
-            (j, s): int(np.ceil(2 * s * tau / (game.n * game.n * (game.n - 1))))
+            (j, s): int(np.ceil(2 * s * T / (game.n * game.n * (game.n - 1))))
             for j, s in product(range(game.n), range(1, game.n))
         }
         for i in N:
@@ -59,7 +59,7 @@ class SLSS(ApproxAlgorithmInterface):
 
         check_number_of_samples_used(
             tsc,
-            tau,
+            T,
             SLSS.name(),
             max_deviation=game.n * game.n * (game.n - 1),
         )
@@ -69,14 +69,14 @@ class SLSS(ApproxAlgorithmInterface):
     @override
     def variance(
         game: GameInterface,
-        tau: int,
+        T: int,
         true_values: np.ndarray,
     ) -> np.ndarray:
         n = game.n
         variances = np.zeros(n)
 
         tau_per_stratum = {
-            (j, s): int(np.ceil(2 * s * tau / (game.n * game.n * (game.n - 1))))
+            (j, s): int(np.ceil(2 * s * T / (game.n * game.n * (game.n - 1))))
             for j, s in product(range(game.n), range(1, game.n))
         }
 

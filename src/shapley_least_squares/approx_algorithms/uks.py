@@ -28,7 +28,9 @@ class UKS(ApproxAlgorithmInterface):
 
     @staticmethod
     @override
-    def run(game: GameInterface, tau: int) -> np.ndarray:
+    def run(game: GameInterface, T: int) -> np.ndarray:
+        tau = T
+
         N = np.array(range(game.n))
         b = np.zeros(game.n)
         size_probs = size_probs_based_on_shap_kernel(game.n)
@@ -48,13 +50,15 @@ class UKS(ApproxAlgorithmInterface):
         numerator = ones.T @ A_inv @ b - game.v(N)
         shapley_values = A_inv @ (b - ones * (numerator / denominator))
 
-        check_number_of_samples_used(n_samples_used, tau, UKS.name())
+        check_number_of_samples_used(n_samples_used, T, UKS.name())
 
         return shapley_values
 
     @staticmethod
     @override
-    def variance(game: GameInterface, tau: int, true_values: np.ndarray) -> np.ndarray:
+    def variance(game: GameInterface, T: int, true_values: np.ndarray) -> np.ndarray:
+        tau = T
+
         n = game.n
         variances = np.zeros(n)
         H = harmonic_number(n - 1)

@@ -22,14 +22,14 @@ class SRSLSS(ApproxAlgorithmInterface):
 
     @staticmethod
     @override
-    def run(game: GameInterface, tau: int) -> np.ndarray:
+    def run(game: GameInterface, T: int) -> np.ndarray:
         n = game.n
         N = np.array(range(n))
         v_N = game.v(N)
         tsc = 0
         a_i_map = {i: 0.0 for i in N}
 
-        tau_s = int(np.ceil(tau / (n - 1)))
+        tau_s = int(np.ceil(T / (n - 1)))
         for s in range(1, n):
             tau_map = {i: 0 for i in N}
             a_is_map = {i: 0.0 for i in N}
@@ -60,7 +60,7 @@ class SRSLSS(ApproxAlgorithmInterface):
 
         check_number_of_samples_used(
             tsc,
-            tau,
+            T,
             SRSLSS.name(),
             max_deviation=n - 1,
         )
@@ -68,5 +68,5 @@ class SRSLSS(ApproxAlgorithmInterface):
 
     @staticmethod
     @override
-    def variance(game: GameInterface, tau: int, true_values: np.ndarray) -> np.ndarray:
+    def variance(game: GameInterface, T: int, true_values: np.ndarray) -> np.ndarray:
         raise NotImplementedError()

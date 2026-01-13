@@ -7,7 +7,7 @@ from shapley_least_squares.scripts.utils.update_plt_params import update_plt_par
 def plot_mse_comparison(experiment_name: str) -> None:
     update_plt_params()
 
-    df = pd.read_csv(f"data/{experiment_name}.csv", index_col="tau")
+    df = pd.read_csv(f"data/{experiment_name}.csv", index_col="T")
 
     for col in df.columns:
         plt.plot(df.index, df[col], label=col)

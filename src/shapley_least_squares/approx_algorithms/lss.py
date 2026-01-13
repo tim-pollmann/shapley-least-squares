@@ -23,7 +23,9 @@ class LSS(ApproxAlgorithmInterface):
 
     @staticmethod
     @override
-    def run(game: GameInterface, tau: int) -> np.ndarray:
+    def run(game: GameInterface, T: int) -> np.ndarray:
+        tau = T
+
         N = np.array(range(game.n))
         shapley_values = np.array([game.v(N) / game.n] * game.n)
         tsc = 0
@@ -39,12 +41,14 @@ class LSS(ApproxAlgorithmInterface):
             shapley_values[in_S] += w_in * v_S
             shapley_values[~in_S] += w_out * v_S
 
-        check_number_of_samples_used(tsc, tau, LSS.name())
+        check_number_of_samples_used(tsc, T, LSS.name())
         return shapley_values
 
     @staticmethod
     @override
-    def variance(game: GameInterface, tau: int, true_values: np.ndarray) -> np.ndarray:
+    def variance(game: GameInterface, T: int, true_values: np.ndarray) -> np.ndarray:
+        tau = T
+
         n = game.n
         variances = np.zeros(n)
 

@@ -23,10 +23,10 @@ class ApproxAlgorithmInterface:
 
     @staticmethod
     @abstractmethod
-    def run(game: GameInterface, tau: int, **kwargs: Any) -> np.ndarray:
+    def run(game: GameInterface, T: int, **kwargs: Any) -> np.ndarray:
         raise NotImplementedError()
 
     @staticmethod
     @abstractmethod
-    def variance(game: GameInterface, tau: int, true_values: np.ndarray) -> np.ndarray:
+    def variance(game: GameInterface, T: int, true_values: np.ndarray) -> np.ndarray:
         raise NotImplementedError()

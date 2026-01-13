@@ -17,7 +17,7 @@ _GAMES = {
 def run_variance_comparison(
     algorithms: list[ApproxAlgorithmInterface],
     experiment_name: str,
-    tau: int,
+    T: int,
     player: int,
     n_iters: int,
 ) -> None:
@@ -32,7 +32,7 @@ def run_variance_comparison(
 
         for algorithm in algorithms:
             theoretical_variance = algorithm.variance(
-                game, tau, ground_truth_shapley_values
+                game, T, ground_truth_shapley_values
             )
 
             records.append(
@@ -47,7 +47,7 @@ def run_variance_comparison(
             empirical_variances = []
 
             for _ in range(n_iters):
-                approximated_shapley_values = algorithm.run(game, tau)
+                approximated_shapley_values = algorithm.run(game, T)
 
                 if not np.isnan(approximated_shapley_values).any():
                     empirical_variances.append(
