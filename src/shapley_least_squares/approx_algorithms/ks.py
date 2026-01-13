@@ -30,7 +30,7 @@ class KS(ApproxAlgorithmInterface):
         size_probs = size_probs_based_on_shap_kernel(game.n)
 
         n_samples_used = 0
-        for _ in range(tau - 1):
+        for _ in range(tau):
             sampled_size = np.random.choice(np.arange(game.n + 1), p=size_probs)
             S = np.random.choice(N, size=sampled_size, replace=False)
             z_vec = z(S, game.n)
@@ -51,7 +51,6 @@ class KS(ApproxAlgorithmInterface):
         ones = np.ones(game.n)
         denominator = ones.T @ A_inv @ ones
         numerator = ones.T @ A_inv @ b - game.v(N)
-        n_samples_used += 1
         shapley_values = A_inv @ (b - ones * (numerator / denominator))
 
         check_number_of_samples_used(n_samples_used, tau, KS.name())
