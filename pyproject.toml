@@ -24,7 +24,8 @@ development = [
 
 [project.scripts]
 run-ag-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:ag"
-run-wvg-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wvg"
+run-wvg-n-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wvg_n"
+run-wvg-u-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wvg_u"
 run-diabetes-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:diabetes"
 run-housing-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:housing"
 run-wine-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wine"
