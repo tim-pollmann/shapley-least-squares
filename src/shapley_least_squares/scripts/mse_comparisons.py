@@ -70,8 +70,8 @@ def wvg_u() -> None:
         ground_truth_shapley_values,
         _ALGORITHMS,
         experiment_name,
-        _Ts_SYNTHETIC_GAMES,
-        _ITERS_PER_T,
+        Ts=[100000, 150000, 200000, 250000, 300000],
+        iters_per_T=100,
     )
 
     plot_mse_comparison(experiment_name)

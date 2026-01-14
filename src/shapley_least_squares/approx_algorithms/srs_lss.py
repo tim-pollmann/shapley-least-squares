@@ -26,10 +26,10 @@ class SRSLSS(ApproxAlgorithmInterface):
         n = game.n
         N = np.array(range(n))
         v_N = game.v(N)
-        tsc = 0
         a_i_map = {i: 0.0 for i in N}
 
         tau_s = int(np.ceil(T / (n - 1)))
+        n_samples_used = 0
         for s in range(1, n):
             tau_map = {i: 0 for i in N}
             a_is_map = {i: 0.0 for i in N}
@@ -37,7 +37,7 @@ class SRSLSS(ApproxAlgorithmInterface):
             for _ in range(tau_s):
                 S = random.sample(N.tolist(), s)
                 v_S = game.v(S)
-                tsc += 1
+                n_samples_used += 1
                 for i in N:
                     if i in S:
                         a_is_map[i] += v_S
@@ -59,7 +59,7 @@ class SRSLSS(ApproxAlgorithmInterface):
         )
 
         check_number_of_samples_used(
-            tsc,
+            n_samples_used,
             T,
             SRSLSS.name(),
             max_deviation=n - 1,

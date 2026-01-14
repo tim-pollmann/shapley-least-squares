@@ -12,6 +12,7 @@ def plot_mse_comparison(experiment_name: str) -> None:
     for col in df.columns:
         plt.plot(df.index, df[col], label=col)
 
+    plt.ylim(bottom=0.0)
     plt.ticklabel_format(style="sci", axis="y", scilimits=(-1, 1))
     plt.xlabel(r"overall sample budget $T$")
     plt.ylabel(r"mean squared error of $\hat{\phi}$")
