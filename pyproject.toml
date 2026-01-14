@@ -30,3 +30,4 @@ run-diabetes-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:dia
 run-housing-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:housing"
 run-wine-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wine"
 run-variance-comparison = "shapley_least_squares.scripts.variance_comparisons:default"
+show-lss-vs-uks-sampling-probs-comparison = "shapley_least_squares.scripts.lss_vs_uks_sampling_probs_comparison:default"
