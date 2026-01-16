@@ -39,14 +39,16 @@ After installation, run one of the following commands to reproduce the figures f
 | Command | Description |
 |----------|----------|
 | ```run-ag-mse-comparison``` | Compares the mean squared errors of all algorithms on an airport game with 100 players. |
-| ```run-wvg-mse-comparison``` | Compares the mean squared errors of all algorithms on a weighted voting game with 50 players. |
+| ```run-wvg-n-mse-comparison``` | Compares the mean squared errors of all algorithms on a weighted voting game with 50 players with the weights being normally distributed. |
+| ```run-wvg-u-mse-comparison``` | Compares the mean squared errors of all algorithms on a weighted voting game with 150 players with the weights being uniformly distributed. |
 | ```run-diabetes-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of a [```GradientBoostingRegressor```](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html) in the context of the [diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html). |
 | ```run-housing-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of an [```MLPRegressor```](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html) in the context of the [California housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html). |
 | ```run-wine-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of a [```RandomForestClassifier```](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) in the context of the [wine dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html) (probability of class $0$ only).  |
 | ```run-variance-comparison``` | Compares the theoretical and empirical variances of *UKS*, *LSS*, and *S-LSS* on different weighted voting games. |
+| ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions *LSS* and *UKS*. |
 
 > [!IMPORTANT]
-> The mean squared error comparisons do ```iters_per_tau``` runs per $\tau$ to average the mean squared error at any given $\tau$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition XXX** in the paper). Thus, for any $\tau$, we require at least ```iters_per_tau / 2``` successful executions for the average mean squared error to be shown in the final figure.
+> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared error at any given $T$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition XXX** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
 
 ## Citation
 
