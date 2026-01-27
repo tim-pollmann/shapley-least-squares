@@ -48,7 +48,7 @@ After installation, run one of the following commands to reproduce the figures f
 | ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions *LSS* and *UKS*. |
 
 > [!IMPORTANT]
-> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared error at any given $T$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition XXX** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
+> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared error at any given $T$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition 4** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
 
 ## Citation
 
