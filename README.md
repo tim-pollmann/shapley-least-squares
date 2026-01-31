@@ -52,7 +52,7 @@ After installation, run one of the following commands to reproduce the figures f
 
 ## Citation
 
-*Will be added after final publication.*
+The paper is currently **under review**. In the meantime, you can reference the preprint via the following DOI: https://doi.org/10.20944/preprints202601.2308.v1.
 
 <!-- If you use this code, please cite:
 
