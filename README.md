@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains the code accompanying the paper **"On least squares approximations for Shapley values and applications to interpretable machine learning"**.
+This repository contains the code accompanying the paper **"On Least Squares Approximations for Shapley Values and Applications to Interpretable Machine Learning"**.
 
 All experiments described in the paper can be reproduced using the commands described in the [Usage](#usage) section.
 
