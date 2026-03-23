@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains the code accompanying the paper **"On least squares approximations for Shapley values and applications to interpretable machine learning"**.
+This repository contains the code accompanying the paper **"On Least Squares Approximations for Shapley Values and Applications to Interpretable Machine Learning"**.
 
 All experiments described in the paper can be reproduced using the commands described in the [Usage](#usage) section.
 
@@ -48,11 +48,11 @@ After installation, run one of the following commands to reproduce the figures f
 | ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions *LSS* and *UKS*. |
 
 > [!IMPORTANT]
-> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared error at any given $T$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition XXX** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
+> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared errors at any given $T$. When executing ```SRS-LSS```, it is not guaranteed that the algorithm runs successfully (compare **Proposition 4** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
 
 ## Citation
 
-*Will be added after final publication.*
+The paper is currently **under review**. In the meantime, you can reference the preprint via the following DOI: https://doi.org/10.20944/preprints202601.2308.v1.
 
 <!-- If you use this code, please cite:
 
