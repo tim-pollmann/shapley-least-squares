@@ -87,7 +87,7 @@ class SRSLSS(ApproxAlgorithmInterface):
 
                 n_samples_used += 1
                 for i in S:
-                    a_si_map[s][i] += v_S
+                    a_si_map[s][i] = v_S
 
         return a_si_map, n_samples_used
 
