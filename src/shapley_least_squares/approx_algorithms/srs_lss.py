@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import random
 from typing import override
 
@@ -31,11 +29,11 @@ class SRSLSS(ApproxAlgorithmInterface):
         raise NotImplementedError()
 
 
-class SRSLSS_Warmup(ApproxAlgorithmInterface):
+class SRSLSS_WarmUp(ApproxAlgorithmInterface):
     @staticmethod
     @override
     def name() -> str:
-        return "SRS-LSS (Warmup)"
+        return "SRS-LSS (WarmUp)"
 
     @staticmethod
     @override
@@ -88,7 +86,7 @@ def _srs_lss(game: GameInterface, T: int, with_warmup: bool) -> np.ndarray:
     check_number_of_samples_used(
         n_samples_used,
         T,
-        SRSLSS_Warmup.name() if with_warmup else SRSLSS.name(),
+        SRSLSS_WarmUp.name() if with_warmup else SRSLSS.name(),
         max_deviation=n - 1,
     )
 
