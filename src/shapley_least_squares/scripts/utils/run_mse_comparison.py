@@ -37,8 +37,8 @@ def run_mse_comparison(
                     )
 
         for algorithm in algorithms:
-            # make sure that algorithms like S-MCIS have at least half the amount of executions in comparison to all
-            # other algorithms
+            # make sure that algorithms like SRS-LSS have at least half the amount of
+            # successful executions in comparison to all other algorithms
             if len(mses_for_given_T[algorithm.name()]) >= iters_per_T / 2:
                 avg_mse_for_given_T = float(np.mean(mses_for_given_T[algorithm.name()]))
                 mses_per_T[algorithm.name()].append(avg_mse_for_given_T)
