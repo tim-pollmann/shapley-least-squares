@@ -1,16 +1,20 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from shapley_least_squares.approx_algorithms.srs_lss import SRSLSS
 from shapley_least_squares.scripts.utils.update_plt_params import update_plt_params
 
 
-def plot_mse_comparison(experiment_name: str) -> None:
+def plot_mse_comparison(
+    experiment_name: str, show_srs_lss_without_warmup: bool = False
+) -> None:
     update_plt_params()
 
     df = pd.read_csv(f"data/{experiment_name}.csv", index_col="T")
 
     for col in df.columns:
-        plt.plot(df.index, df[col], label=col)
+        if col != SRSLSS.name() or show_srs_lss_without_warmup:
+            plt.plot(df.index, df[col], label=col)
 
     plt.ticklabel_format(style="sci", axis="y", scilimits=(-1, 1))
     plt.xlabel(r"overall sample budget $T$")
