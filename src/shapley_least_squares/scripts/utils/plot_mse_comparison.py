@@ -2,7 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from shapley_least_squares.approx_algorithms.srs_lss import SRSLSS
-from shapley_least_squares.scripts.utils.update_plt_params import update_plt_params
+from shapley_least_squares.scripts.utils.update_plt_params import (
+    format_with_commas,
+    update_plt_params,
+)
 
 
 def plot_mse_comparison(
@@ -17,6 +20,7 @@ def plot_mse_comparison(
             plt.plot(df.index, df[col], label=col)
 
     plt.ticklabel_format(style="sci", axis="y", scilimits=(-1, 1))
+    plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(format_with_commas))
     plt.xlabel(r"overall sample budget $T$")
     plt.ylabel(r"mean squared error of $\hat{\phi}$")
     plt.legend()

@@ -15,3 +15,10 @@ def update_plt_params() -> None:
             "text.latex.preamble": r"\usepackage{amsfonts} \usepackage{amsmath}",
         }
     )
+
+
+def format_with_commas(x: int | float, _) -> str:
+    if abs(x) >= 10000:
+        return f"{x:,.0f}"
+
+    return f"{x:g}"
