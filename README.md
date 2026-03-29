@@ -45,10 +45,10 @@ After installation, run one of the following commands to reproduce the figures f
 | ```run-housing-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of an [```MLPRegressor```](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html) in the context of the [California housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html). |
 | ```run-wine-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of a [```RandomForestClassifier```](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) in the context of the [wine dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html) (probability of class $0$ only).  |
 | ```run-variance-comparison``` | Compares the theoretical and empirical variances of *UKS*, *LSS*, and *S-LSS* on different weighted voting games. |
-| ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions *LSS* and *UKS*. |
+| ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions of *LSS* and *UKS*. |
 
 > [!IMPORTANT]
-> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared errors at any given $T$. When executing *SRS-LSS (without WarmUp)*, it is not guaranteed that the algorithm runs successfully (compare **Proposition 4** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
+> The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared errors at any given $T$. When executing *SRS-LSS without WarmUp*, it is not guaranteed that the algorithm runs successfully (compare **Proposition 4** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
 
 ## Citation
 
