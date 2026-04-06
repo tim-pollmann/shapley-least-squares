@@ -12,7 +12,7 @@ license-files = ["LICENSE"]
 dependencies = [
     "click",
     "numpy",
-    "pandas",
+    "pandas[output-formatting]",
     "matplotlib",
     "PyQt5",
     "scikit-learn"
@@ -31,3 +31,5 @@ run-housing-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:hous
 run-wine-mse-comparison = "shapley_least_squares.scripts.mse_comparisons:wine"
 run-variance-comparison = "shapley_least_squares.scripts.variance_comparisons:default"
 show-lss-vs-uks-sampling-probs-comparison = "shapley_least_squares.scripts.lss_vs_uks_sampling_probs_comparison:default"
+run-ag-hoeffding = "shapley_least_squares.scripts.hoeffding_bounds:ag"
+run-wvg-hoeffding = "shapley_least_squares.scripts.hoeffding_bounds:wvg"
