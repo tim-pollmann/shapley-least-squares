@@ -64,9 +64,7 @@ def extract_stats(
         mean_abs_errors = np.mean(abs_error_matrix, axis=1)
         max_abs_errors = np.max(abs_error_matrix, axis=1)
 
-        min_squared_errors = np.min(squared_error_matrix, axis=1)
         mean_squared_errors = np.mean(squared_error_matrix, axis=1)
-        max_squared_errors = np.max(squared_error_matrix, axis=1)
 
         stats_list.append(
             {
@@ -74,16 +72,14 @@ def extract_stats(
                 "MinAbsPlayerError": player_errors.min(),
                 "MeanAbsPlayerError": player_errors.mean(),
                 "MaxAbsPlayerError": player_errors.max(),
-                "MinAbsError": min_abs_errors.mean(),
-                "MeanAbsError": mean_abs_errors.mean(),
-                "MaxAbsError": max_abs_errors.mean(),
-                "MinSquaredError": min_squared_errors.mean(),
-                "MeanSquaredError": mean_squared_errors.mean(),
-                "MaxSquaredError": max_squared_errors.mean(),
-                "MinAbsGlobalError": abs_error_matrix.min(),
-                "MaxAbsGlobalError": abs_error_matrix.max(),
-                "MinSquaredGlobalError": squared_error_matrix.min(),
-                "MaxSquaredGlobalError": squared_error_matrix.max(),
+                "MeanMinAbsError": min_abs_errors.mean(),
+                "MeanMeanAbsError": mean_abs_errors.mean(),
+                "MeanMaxAbsError": max_abs_errors.mean(),
+                "MinMeanSquaredError": mean_squared_errors.min(),
+                "MeanMeanSquaredError": mean_squared_errors.mean(),
+                "MaxMeanSquaredError": mean_squared_errors.max(),
+                "GlobalMinAbsError": abs_error_matrix.min(),
+                "GlobalMaxAbsError": abs_error_matrix.max(),
             }
         )
 
@@ -106,10 +102,8 @@ def extract_stats(
 def _create_latex_table(df: pd.DataFrame, player: int) -> str:
     df = df.drop(
         columns=[
-            "MinAbsGlobalError",
-            "MaxAbsGlobalError",
-            "MinSquaredGlobalError",
-            "MaxSquaredGlobalError",
+            "GlobalMinAbsError",
+            "GlobalMaxAbsError",
         ]
     )
     df = df.rename(
@@ -117,12 +111,12 @@ def _create_latex_table(df: pd.DataFrame, player: int) -> str:
             "MinAbsPlayerError": f"Min. Absolute Error of $i={player+1}$",
             "MeanAbsPlayerError": f"Mean Absolute Error of $i={player+1}$",
             "MaxAbsPlayerError": f"Max. Absolute Error of $i={player+1}$",
-            "MinAbsError": "Min. Absolute Error (averaged)",
-            "MeanAbsError": "Mean Absolute Error (averaged)",
-            "MaxAbsError": "Max. Absolute Error (averaged)",
-            "MinSquaredError": "Min. Squared Error (averaged)",
-            "MeanSquaredError": "Mean Squared Error (averaged)",
-            "MaxSquaredError": "Max. Squared Error (averaged)",
+            "MeanMinAbsError": "Avg. Min. Absolute Error",
+            "MeanMeanAbsError": "Avg. Mean Absolute Error",
+            "MeanMaxAbsError": "Avg. Max. Absolute Error",
+            "MinMeanSquaredError": "Min. Mean Squared Error",
+            "MeanMeanSquaredError": "Avg. Mean Squared Error",
+            "MaxMeanSquaredError": "Max. Mean Squared Error",
         }
     )
     df = df.T
