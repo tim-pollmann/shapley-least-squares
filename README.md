@@ -13,7 +13,6 @@ All experiments described in the paper can be reproduced using the commands desc
 | [```src/shapley_least_squares/scripts```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/src/shapley_least_squares/scripts) | The scripts starting the experiments. |
 | [```data```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/data) | The results of the experiments saved as CSV files. |
 | [```figures```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/figures) | The figures from the paper based on the experiment results in the [```data```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/data) directory. |
-| [```tables```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/tables) | The tables from the paper based on the experiment results in the [```data```](https://github.com/tim-pollmann/shapley-least-squares/tree/main/data) directory. |
 
 
 ## Installation
