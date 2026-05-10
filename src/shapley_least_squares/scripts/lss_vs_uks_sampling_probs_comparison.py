@@ -14,6 +14,7 @@ _N = 9
 def default() -> None:
     experiment_name = "lss_vs_uks_sampling_probs_comparison"
     update_plt_params()
+    plt.rcParams.update({"text.latex.preamble": r"\usepackage{newtxtext,newtxmath}"})
 
     size_probs_lss = [1 / (_N - 1)] * (_N - 1)
     assert np.sum(size_probs_lss) == 1.0
