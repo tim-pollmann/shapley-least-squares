@@ -46,8 +46,10 @@ After installation, run one of the following commands to reproduce the figures f
 | ```run-wine-mse-comparison``` | Compares the mean squared errors of all algorithms when approximating the feature importances of a [```RandomForestClassifier```](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) in the context of the [wine dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html) (probability of class $0$ only).  |
 | ```run-variance-comparison``` | Compares the theoretical and empirical variances of *UKS*, *LSS*, and *S-LSS* on different weighted voting games. |
 | ```show-lss-vs-uks-sampling-probs-comparison``` | Visualizes the sampling distributions of *LSS* and *UKS*. |
-| ```run-ag-hoeffding``` | Validates Hoeffding bounds for *LSS*, *S-LSS*, and *UKS* via 1000 simulations on an airport game with 100 players. |
-| ```run-wvg-hoeffding``` | Validates Hoeffding bounds for *LSS*, *S-LSS*, and *UKS* via 1000 simulations on a weighted voting game with 50 players. |
+| ```create-raw-ag-data``` | Runs all algorithms 1000 times on an airport game with 100 players and saves the corresponding approximated Shapley values in raw format. |
+| ```create-raw-wvg-data``` | Runs all algorithms 1000 times on a weighted voting game with 50 players and saves the corresponding approximated Shapley values in raw format. |
+| ```extract-ag-stats``` | Extracts key statistics and validates the Hoeffding bounds based on the data generated via ```create-raw-ag-data```. |
+| ```extract-wvg-stats``` | Extracts key statistics and validates the Hoeffding bounds based on the data generated via ```create-raw-wvg-data```. |
 
 > [!IMPORTANT]
 > The mean squared error comparisons do ```iters_per_T``` runs per $T$ to average the mean squared errors at any given $T$. When executing *SRS-LSS without WarmUp*, it is not guaranteed that the algorithm runs successfully (compare **Proposition 4** in the paper). Thus, for any $T$, we require at least ```iters_per_T / 2``` successful executions for the average mean squared error to be shown in the final figure.
