@@ -18,13 +18,20 @@ _N_ITERS: int = 1000
 
 
 def ag() -> None:
-    experiment_name = "ag"
-    game = CustomAirportGameLarge()
-
-    run_algorithms(game, _ALGORITHMS, experiment_name, T=_T, n_iters=_N_ITERS)
+    run_algorithms(
+        game=CustomAirportGameLarge(),
+        algorithms=_ALGORITHMS,
+        experiment_name="ag",
+        T=_T,
+        n_iters=_N_ITERS,
+    )
 
 
 def wvg() -> None:
-    experiment_name = "wvg"
-    game = CustomWeightedVotingGameNormalSqrd()
-    run_algorithms(game, _ALGORITHMS, experiment_name, T=_T, n_iters=_N_ITERS)
+    run_algorithms(
+        game=CustomWeightedVotingGameNormalSqrd(),
+        algorithms=_ALGORITHMS,
+        experiment_name="wvg",
+        T=_T,
+        n_iters=_N_ITERS,
+    )

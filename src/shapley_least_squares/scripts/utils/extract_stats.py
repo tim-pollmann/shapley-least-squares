@@ -14,7 +14,7 @@ def _calculate_distributions(array: np.ndarray, prefix: str) -> dict[str, float]
         f"{prefix}_Min": np.min(array),
         f"{prefix}_Max": np.max(array),
         f"{prefix}_Std": std,
-        f"{prefix}_CV": std / mean if mean != 0 else np.nan,
+        f"{prefix}_CV": std / mean if not np.isclose(mean, 0) else np.nan,
         f"{prefix}_IQR": q3 - q1,
         f"{prefix}_Lower95": low95,
         f"{prefix}_Upper95": up95,
@@ -33,6 +33,9 @@ def extract_stats(
 
     for col in algo_cols:
         df_pivoted = df_raw.pivot(index="iteration", columns="player_id", values=col)
+        assert df_pivoted.columns.equals(
+            pd.Index(range(len(ground_truth_shapley_values)))
+        )
         error_matrix = df_pivoted.values - ground_truth_shapley_values
         abs_error_matrix = np.abs(error_matrix)
         squared_error_matrix = error_matrix**2
