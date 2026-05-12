@@ -56,10 +56,20 @@ After installation, run one of the following commands to reproduce the figures f
 
 ## Citation
 
-The paper is currently **under review**. In the meantime, you can reference the preprint via the following DOI: https://doi.org/10.20944/preprints202601.2308.v1.
+If you use this code, please cite:
 
-<!-- If you use this code, please cite:
-
-```sh
-@article{...}
-``` -->
+```
+@Article{foundations6020018,
+    AUTHOR = {Pollmann, Tim and Staudacher, Jochen},
+    TITLE = {On Least Squares Approximations of Shapley Values and Applications to Interpretable Machine Learning},
+    JOURNAL = {Foundations},
+    VOLUME = {6},
+    YEAR = {2026},
+    NUMBER = {2},
+    ARTICLE-NUMBER = {18},
+    URL = {https://www.mdpi.com/2673-9321/6/2/18},
+    ISSN = {2673-9321},
+    ABSTRACT = {The Shapley value is the predominant point-valued solution concept in cooperative game theory and has recently become a foundational method in interpretable machine learning. In this domain, a prevailing strategy for circumventing the computational intractability of exact Shapley values is to approximate them via a weighted least squares optimization framework. In this paper, we investigate an existing algorithmic framework for weighted least squares Shapley approximation, assessing its feasibility for feature attribution. Methodologically, we conduct a theoretical variance analysis within a Monte Carlo sampling framework, investigate an approach for sample reuse across strata, and establish a relation to Unbiased KernelSHAP. Our analysis reveals three main findings: (i) a structural equivalence between least squares sampling and Unbiased KernelSHAP; (ii) the non-zero covariance between sampled coalitions introduced by reusing samples across strata in one of the existing least squares-based approaches; and (iii) the absence of a universally optimal sampling strategy across tasks. We validate these results empirically on several cooperative games and practical machine learning problems.},
+    DOI = {10.3390/foundations6020018}
+}
+```
